@@ -9,10 +9,9 @@ def insertionsort(array):
             j-=1
         array[j+1]=v
 if __name__ == '__main__':
-  array = [i for i in range(0,15000)]
-  array = [10,30,40,304,10,2,3,4,5,123]
-  array1 = [i for i in range(15000,0,-1)]
-  array2 = [random.randint(0, 10000) for i in range(0,15000)] 
+  array = [i for i in range(0,5000)]
+  array1 = [i for i in range(5000,0,-1)]
+  array2 = [random.randint(0, 5000) for i in range(0,5000)] 
   print()  
   sure1 =perf_counter()   
   insertionsort(array)
@@ -20,12 +19,12 @@ if __name__ == '__main__':
   print(' en iyi durum ::',sure2-sure1,'saniye' )
   
   sure1 = perf_counter()
- ## insertionsort(array1)
+  insertionsort(array1)
   sure2 = perf_counter()
   print(' en kotu durum ::', sure2-sure1,'saniye')
   
   sure1 = perf_counter()
- # insertionsort(array2)
+  insertionsort(array2)
   sure2 = perf_counter()
   print(' ortalama durum ::', sure2-sure1, 'saniye')
   print()
