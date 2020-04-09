@@ -1,3 +1,5 @@
+from time import perf_counter 
+import random
 def merge(a, start, middle, end):
   size_of_temp1 = (middle-start)+1
   size_of_temp2 = (end-middle)
@@ -43,6 +45,22 @@ def merge_sort(a, start, end):
     merge(a, start, middle, end)
 
 if __name__ == '__main__':
-  a = [4, 8, 1, 3, 10, 9, 2, 11, 5, 6]
-  merge_sort(a, 0, 9)
-  print(a)
+  bestcase = [i for i in range(0,5000)]
+  worstcase= [i for i in range(5000,0,-1)]
+  avaragecase=[random.randint(0,5000) for i in range(0,5000)]
+  print()  
+  sure1 =perf_counter()   
+  merge_sort(bestcase,0,4999)
+  sure2 = perf_counter()  
+  print(' en iyi durum ::',sure2-sure1,'saniye' )
+  
+  sure1 = perf_counter()
+  merge_sort(worstcase,0,4999)
+  sure2 = perf_counter()
+  print(' en kotu durum ::', sure2-sure1,'saniye')
+  
+  sure1 = perf_counter()
+  merge_sort(avaragecase,0,4999)
+  sure2 = perf_counter()
+  print(' ortalama durum ::', sure2-sure1, 'saniye')
+  print()

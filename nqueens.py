@@ -1,3 +1,4 @@
+from time import perf_counter
 def control(i, j, board, N):
   # j sutunu kontrol
   for k in range(1, i):
@@ -39,9 +40,32 @@ def n_queen(row, n, N, board):
   return False
 
 if __name__ == '__main__':
-  board = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
+      board = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
+      board2=[[0,0,0],[0,0,0],[0,0,0]]
+      board3 =  [[0,0,0,0,0,0,0,0,0,0]
+                ,[0,0,0,0,0,0,0,0,0,0]
+                ,[0,0,0,0,0,0,0,0,0,0]
+                ,[0,0,0,0,0,0,0,0,0,0]
+                ,[0,0,0,0,0,0,0,0,0,0]
+                ,[0,0,0,0,0,0,0,0,0,0]
+                ,[0,0,0,0,0,0,0,0,0,0]
+                ,[0,0,0,0,0,0,0,0,0,0]
+                ,[0,0,0,0,0,0,0,0,0,0]]
+      print()  
+      sure1 =perf_counter()   
+      
+      n_queen(1, 2, 2, board2)
+      sure2 = perf_counter()  
+      print(' en iyi durum ::',sure2-sure1,'saniye' )
+      
+      sure1 = perf_counter()
+      n_queen(1, 7, 7, board3)      
+      sure2 = perf_counter()
+      print(' en kotu durum ::', sure2-sure1,'saniye')
+      
+      sure1 = perf_counter()
 
-  n_queen(1, 4, 4, board)
-  
-  for i in range(1, 5):
-      print(board[i][1:])
+      n_queen(1, 4, 4, board)
+      sure2 = perf_counter()
+      print(' ortalama durum ::', sure2-sure1, 'saniye')
+      print()

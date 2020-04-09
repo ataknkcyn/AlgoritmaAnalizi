@@ -1,3 +1,4 @@
+from time import perf_counter
 
 def linearSearch(n,array):
     for i in array:
@@ -6,6 +7,23 @@ def linearSearch(n,array):
     return False
 
 if '__main__' == __name__:
-    array = [1,2,3,4,5,46,4,2,34,235,234,4,456]
-    print(linearSearch(9,array))
+  array = [i for i in range(0,5000)]
+  print()  
+  sure1 =perf_counter()   
+  linearSearch(0,array)
+  sure2 = perf_counter()  
+  print(' en iyi durum ::',sure2-sure1,'saniye' )
+  
+  sure1 = perf_counter()
+  linearSearch(4999,array)
+  sure2 = perf_counter()
+  print(' en kotu durum ::', sure2-sure1,'saniye')
+  
+  sure1 = perf_counter()
+  linearSearch(2500,array)
+  sure2 = perf_counter()
+  print(' ortalama durum ::', sure2-sure1, 'saniye')
+  print()
+
+
     
